@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Amor, Teoricamente - Livro Digital</title>
+  <!-- Link para fontes elegantes do Google Fonts -->
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <main class="main-container">
+    <div class="livro-layout-grid">
+     
+      <!-- LADO ESQUERDO: CAPA E TAGS -->
+      <section class="coluna-esquerda">
+        <div class="capa-wrapper">
+          <img src="img.png" alt="Capa do livro Amor, Teoricamente" class="capa-livro">
+        </div>
+        <div class="tags-container">
+          <span class="tag-badge">Romance</span>
+          <span class="tag-badge">Física</span>
+          <span class="tag-badge">384 Pág.</span>
+        </div>
+      </section>
+     
+      <!-- LADO DIREITO: TEXTOS E AÇÕES -->
+      <section class="coluna-direita">
+        <div class="cabecalho-livro">
+          <div class="meta-avaliacao">★ 4.8 <span class="avaliacoes-qtd">(12.420 leitores)</span></div>
+          <h1 class="titulo-livro">Amor, Teoricamente</h1>
+          <p class="autor-livro">Por <span>Ali Hazelwood</span></p>
+        </div>
+
+        <div class="sinopse-container">
+          <h2>Sinopse da Obra</h2>
+          <p class="sinopse-texto">
+            Elsie Hannaway é uma física teórica que vive duas vidas: de dia, é professora substituta;
+            de noite, ganha um extra trabalhando como namorada de aluguel. Tudo complica quando
+            o irmão do seu cliente favorito acaba sendo o físico experimental que pode destruir sua carreira.
+          </p>
+        </div>
+
+        <div class="acoes-container">
+          <button class="btn-primary" onclick="document.getElementById('id01').style.display='flex'">
+            Começar Leitura Gratuita
+          </button>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- JANELA MODAL AUTOMATICAMENTE CENTRALIZADA -->
+  <div id="id01" class="modal-overlay">
+    <div class="modal-card animate">
+     
+      <div class="modal-header">
+        <h3>Área do Leitor</h3>
+        <span onclick="document.getElementById('id01').style.display='none'" class="btn-fechar">&times;</span>
+      </div>
+
+      <form action="#" method="post" class="modal-form">
+        <div class="form-group">
+          <label for="uname">Nome Completo</label>
+          <input type="text" id="uname" placeholder="Digite seu nome para acessar" name="uname" required>
+        </div>
+
+        <div class="form-group">
+          <label for="capitulo">Selecione o Capítulo</label>
+          <select id="capitulo" name="capitulo">
+            <option value="cap1">Capítulo 1: Hipótese Inicial</option>
+            <option value="cap2">Capítulo 2: Colisão Teórica</option>
+            <option value="cap3">Capítulo 3: Variáveis Inesperadas</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-submit">Iniciar Degustação</button>
+      </form>
+
+    </div>
+  </div>
+
+  <script src="./js/script.js"></script>
+</body>
+</html>

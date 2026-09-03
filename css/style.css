@@ -1,0 +1,277 @@
+
+/* CONFIGURAÇÕES GERAIS E CORES */
+:root {
+  --cor-fundo: #fcfbfa;
+  --cor-texto-principal: #1a1a1a;
+  --cor-texto-secundario: #555555;
+  --cor-destaque: #8c2d42; /* Tom vinho elegante */
+  --cor-destaque-hover: #6b1f30;
+  --cor-badges: #f0eae4;
+  --fonte-titulos: 'Playfair Display', serif;
+  --fonte-texto: 'Plus Jakarta Sans', sans-serif;
+  --sombra-suave: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto-principal);
+  font-family: var(--fonte-texto);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* GRID PRINCIPAL DO LIVRO */
+.main-container {
+  width: 100%;
+  max-width: 960px;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: var(--sombra-suave);
+}
+
+.livro-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 50px;
+}
+
+/* LADO ESQUERDO (CAPA E TAGS) */
+.coluna-esquerda {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.capa-wrapper {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.capa-wrapper:hover {
+  transform: translateY(-5px);
+}
+
+.capa-livro {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.tags-container {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tag-badge {
+  background-color: var(--cor-badges);
+  color: var(--cor-texto-secundario);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* LADO DIREITO (INFORMAÇÕES E TEXTO) */
+.coluna-direita {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.meta-avaliacao {
+  color: #d4a373;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.avaliacoes-qtd {
+  color: #999;
+  font-weight: 400;
+}
+
+.titulo-livro {
+  font-family: var(--fonte-titulos);
+  font-size: 2.8rem;
+  line-height: 1.2;
+  margin-bottom: 5px;
+}
+
+.autor-livro {
+  font-size: 1.1rem;
+  color: var(--cor-texto-secundario);
+  margin-bottom: 30px;
+}
+
+.autor-livro span {
+  color: var(--cor-destaque);
+  font-weight: 600;
+}
+
+.sinopse-container h2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #999;
+  margin-bottom: 12px;
+}
+
+.sinopse-texto {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--cor-texto-secundario);
+  margin-bottom: 35px;
+}
+
+/* BOTOES */
+.btn-primary {
+  background-color: var(--cor-destaque);
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  font-family: var(--fonte-texto);
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--cor-destaque-hover);
+}
+
+/* JANELA MODAL MODERNA */
+.modal-overlay {
+  display: none; /* Ativado via JavaScript */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px); /* Efeito borrado de fundo */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-card {
+  background: white;
+  width: 100%;
+  max-width: 440px;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.modal-header h3 {
+  font-family: var(--fonte-titulos);
+  font-size: 1.5rem;
+}
+
+.btn-fechar {
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #999;
+}
+
+.btn-fechar:hover {
+  color: #1a1a1a;
+}
+
+/* FORMULÁRIO DENTRO DO MODAL */
+.modal-form .form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal-form label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--cor-texto-secundario);
+}
+
+.modal-form input, .modal-form select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: var(--fonte-texto);
+  font-size: 1rem;
+  outline: none;
+}
+
+.modal-form input:focus, .modal-form select:focus {
+  border-color: var(--cor-destaque);
+}
+
+.btn-submit {
+  width: 100%;
+  background-color: var(--cor-texto-principal);
+  color: white;
+  border: none;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn-submit:hover {
+  background-color: #333;
+}
+
+/* ANIMAÇÃO DE ENTRADA SUAVE */
+.animate {
+  animation: zoom 0.3s ease;
+}
+
+@keyframes zoom {
+  from {transform: scale(0.95); opacity: 0;} 
+  to {transform: scale(1); opacity: 1;}
+}
+
+/* ADAPTAÇÃO PARA CELULARES */
+@media (max-width: 768px) {
+  .livro-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .main-container {
+    padding: 20px;
+  }
+  .titulo-livro {
+    font-size: 2rem;
+  }
+}
+
+
